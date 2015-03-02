@@ -1,0 +1,16 @@
+languageCode = "ja"
+title = "とにかくやってみた。"
+contentdir = "content"
+publishdir = "public"
+builddrafts = false
+baseurl = "http://yoheimuta.github.io/tonikaku"
+canonifyurls = true
+author = "flaflasun"
+
+[indexes]
+    category = "categories"
+    tag = "tags"
+[Params]
+    AuthorName = "flaflasun"
+    github = "flaflasun/tonikaku"
+    twitter = "flaflasun"
