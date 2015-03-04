@@ -1,6 +1,6 @@
 +++
 date = "2015-03-02T23:45:57+09:00"
-draft = true
+draft = false
 title = "ブログを始めてみた"
 
 +++
