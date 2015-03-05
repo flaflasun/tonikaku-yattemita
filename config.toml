@@ -3,7 +3,7 @@ title = "とにかくやってみた。"
 contentdir = "content"
 publishdir = "public"
 builddrafts = false
-baseurl = "http://yoheimuta.github.io/tonikaku"
+baseurl = "http://flaflasun.github.io/tonikaku-yattemita"
 canonifyurls = true
 author = "flaflasun"
 
@@ -12,5 +12,5 @@ author = "flaflasun"
     tag = "tags"
 [Params]
     AuthorName = "flaflasun"
-    github = "flaflasun/tonikaku"
+    github = "flaflasun/tonikaku-yattemita"
     twitter = "flaflasun"
