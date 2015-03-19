@@ -48,6 +48,6 @@ Hugoのファイル構成はシンプルで理解しやすい内容になって�
 
 ### 今後について
 
-Wercker CIを使ってデプロイの自動化を試していこうと思っています。  
+[Wercker](http://wercker.com/)を使ってデプロイの自動化を試していこうと思っています。  
 
 [Automated deployments with Wercker](http://gohugo.io/tutorials/automated-deployments/)  
