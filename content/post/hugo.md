@@ -50,4 +50,6 @@ Hugoのファイル構成はシンプルで理解しやすい内容になって�
 
 [Wercker](http://wercker.com/)を使ってデプロイの自動化を試していこうと思っています。  
 
+書きました -> [Werckerを使ってHugoのデプロイ自動化](../wercker/index.html)
+
 [Automated deployments with Wercker](http://gohugo.io/tutorials/automated-deployments/)  
