@@ -14,7 +14,7 @@ GitHubへのPushにフックしてアプリケーションのテスト、ビル�
 
 今回はHugoで作成しているブログのデプロイを自動化するためにWerckerを使ってみました。  
 
-Hugoについては[こちら](hugo/index.html)  
+Hugoについては[こちら](../hugo/index.html)  
 
 #### Werckerを選んだ理由
 
