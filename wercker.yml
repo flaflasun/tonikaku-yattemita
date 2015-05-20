@@ -5,6 +5,13 @@ build:
         version: 0.13
         theme: hyde
         flags: --buildDrafts=true
+  after-steps:
+    - sherzberg/slack-notify:
+        subdomain: piece-of-cake
+        token: $SLACK_TOKEN
+        channel: "#blog"
+        username: wercker
+        icon_url: https://avatars3.githubusercontent.com/u/1695193?s=140
 deploy:
   steps:
     - lukevivier/gh-pages@0.2.1:
