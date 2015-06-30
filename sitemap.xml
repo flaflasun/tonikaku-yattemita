@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>http://flaflasun.github.io/tonikaku-yattemita/</loc>
+    <lastmod>2015-06-30T18:48:34+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://flaflasun.github.io/tonikaku-yattemita/post/2015-06-30_wordc/</loc>
+    <lastmod>2015-06-30T18:48:34+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://flaflasun.github.io/tonikaku-yattemita/post/2015-03-22_wercker/</loc>
+    <lastmod>2015-03-22T23:03:55+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://flaflasun.github.io/tonikaku-yattemita/post/2015-03-09_hugo/</loc>
+    <lastmod>2015-03-09T20:54:33+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://flaflasun.github.io/tonikaku-yattemita/post/2015-03-02_first/</loc>
+    <lastmod>2015-03-02T23:45:57+09:00</lastmod>
+  </url>
+  
+</urlset>

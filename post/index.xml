@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on とにかくやってみた。</title>
+    <link>http://flaflasun.github.io/tonikaku-yattemita/post/</link>
+    <description>Recent content in Posts on とにかくやってみた。</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Tue, 30 Jun 2015 18:48:34 +0900</lastBuildDate>
+    <atom:link href="http://flaflasun.github.io/tonikaku-yattemita/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Go を使ってコマンドラインツール wordc を作ってみた</title>
+      <link>http://flaflasun.github.io/tonikaku-yattemita/post/2015-06-30_wordc/</link>
+      <pubDate>Tue, 30 Jun 2015 18:48:34 +0900</pubDate>
+      
+      <guid>http://flaflasun.github.io/tonikaku-yattemita/post/2015-06-30_wordc/</guid>
+      <description>
+
+&lt;p&gt;Go Conference 2015 summer で楽しそうな話題が豊富に流れてきて、
+羨ましかったので Go の勉強を兼ねて、コマンドラインツールを作ってみた。&lt;/p&gt;
+
+&lt;h3 id=&#34;wordc-について:0ab966d430a553214192dec79fdcfa98&#34;&gt;wordc について&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/flaflasun/wordc&#34;&gt;wordc&lt;/a&gt; は単語別出現回数を出力するコマンドラインツールです。&lt;/p&gt;
+
+&lt;p&gt;Go のチュートリアル &lt;a href=&#34;https://go-tour-jp.appspot.com/#1&#34;&gt;A Tour of Go&lt;/a&gt; の&lt;a href=&#34;https://go-tour-jp.appspot.com/#41&#34;&gt;#41 Exercise: Maps&lt;/a&gt; に
+単語別に出現回数を返す関数の問題があり、CLIで使えたら便利だなと思ったので作りました。&lt;/p&gt;
+
+&lt;p&gt;個人的な用途としては、英語のドキュメントを読むときに
+事前に出現頻度の高い英単語の意味を調べるために使ってます。&lt;/p&gt;
+
+&lt;h3 id=&#34;インストール:0ab966d430a553214192dec79fdcfa98&#34;&gt;インストール&lt;/h3&gt;
+
+&lt;p&gt;インストールは go get から&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;go get -d github.com/flaflasun/wordc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Go を入れていない人は今すぐ Go をインストール。&lt;/p&gt;
+
+&lt;h3 id=&#34;デモ:0ab966d430a553214192dec79fdcfa98&#34;&gt;デモ&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://g.recordit.co/z2f4AFAs91.gif&#34; alt=&#34;wordc-demo.gif&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;単語数が多いと出力行が多くなるので &lt;a href=&#34;https://github.com/peco/peco&#34;&gt;peco&lt;/a&gt; と組み合わせると便利です。&lt;/p&gt;
+
+&lt;h3 id=&#34;利用した外部パッケージ:0ab966d430a553214192dec79fdcfa98&#34;&gt;利用した外部パッケージ&lt;/h3&gt;
+
+&lt;p&gt;Go でコマンドラインツールについてググると大体、&lt;a href=&#34;https://github.com/codegangsta/cli&#34;&gt;codegangsta/cli&lt;/a&gt; が出てくるので使ってます。
+help メッセージを生成してくれて便利でした。
+ただ、サブコマンドを作らなかったので、標準パッケージの flag でも良かったかなと。&lt;/p&gt;
+
+&lt;h3 id=&#34;まとめ:0ab966d430a553214192dec79fdcfa98&#34;&gt;まとめ&lt;/h3&gt;
+
+&lt;p&gt;コマンドラインツール思ったより簡単に作れて Go 便利。
+Go 楽しく作れてとても良い。もっと色々作っていきたい。
+とりあえず今はテストが無いのでテストを書きたい。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Werckerを使ってHugoのデプロイ自動化</title>
+      <link>http://flaflasun.github.io/tonikaku-yattemita/post/2015-03-22_wercker/</link>
+      <pubDate>Sun, 22 Mar 2015 23:03:55 +0900</pubDate>
+      
+      <guid>http://flaflasun.github.io/tonikaku-yattemita/post/2015-03-22_wercker/</guid>
+      <description>
+
+&lt;h3 id=&#34;werckerについて:e3c78694dd7b32088d60de35149ce93e&#34;&gt;Werckerについて&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://wercker.com/&#34;&gt;Wercker&lt;/a&gt;は無料で使えるCIツールです。&lt;br /&gt;
+GitHubへのPushにフックしてアプリケーションのテスト、ビルド、デプロイすることが出来ます。&lt;/p&gt;
+
+&lt;h3 id=&#34;werckerを使ってgithub-pagesへデプロイ:e3c78694dd7b32088d60de35149ce93e&#34;&gt;Werckerを使ってGitHub Pagesへデプロイ&lt;/h3&gt;
+
+&lt;p&gt;今回はHugoで作成しているブログのデプロイを自動化するためにWerckerを使ってみました。&lt;/p&gt;
+
+&lt;p&gt;Hugoについては&lt;a href=&#34;../hugo/index.html&#34;&gt;こちら&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;werckerを選んだ理由:e3c78694dd7b32088d60de35149ce93e&#34;&gt;Werckerを選んだ理由&lt;/h4&gt;
+
+&lt;p&gt;理由は単純に公式サイトで紹介されているのがWerckerだったからです。&lt;/p&gt;
+
+&lt;h4 id=&#34;wercke導入までの流れ:e3c78694dd7b32088d60de35149ce93e&#34;&gt;Wercke導入までの流れ&lt;/h4&gt;
+
+&lt;p&gt;Wercker導入の手順はHugoの公式サイトに記載されているので、
+概要だけ紹介しようと思います(Hugoインストール、GitHubリポジトリ作成は除く)。&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Hugoでブログを作成(利用するテーマの .git は削除する必要あり)&lt;/li&gt;
+&lt;li&gt;Werckerに&lt;a href=&#34;http://wercker.com/&#34;&gt;登録&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;WerckerとGitHubアカウントを紐付ける&lt;/li&gt;
+&lt;li&gt;WerckerにGitHubプロジェクトを登録&lt;/li&gt;
+&lt;li&gt;Wercker.yml作成(ビルドとデプロイ設定を作成)&lt;/li&gt;
+&lt;li&gt;Werckerにデプロイする対象(GitHubのブランチ)を選択&lt;/li&gt;
+&lt;li&gt;GitHubにPushする&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;ここまで、設定すればあとはGitHubにPushするたびに
+Hugoのビルド、デプロイまでWerckerが自動でやってくれます。&lt;/p&gt;
+
+&lt;p&gt;この記事ではざっくり書いてますが、
+公式サイトの手順はしっかり書かれているので、
+そちらを参考にするのがいいです。&lt;br /&gt;
+&lt;a href=&#34;http://gohugo.io/tutorials/automated-deployments/&#34;&gt;Automated deployments with Wercker&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;werckerを導入してみて:e3c78694dd7b32088d60de35149ce93e&#34;&gt;Werckerを導入してみて&lt;/h3&gt;
+
+&lt;p&gt;Wercker導入後はわざわざビルドやデプロイをする必要がなくなり、とても快適です。
+導入自体も公式サイトの手順がしっかりしているので、割りと簡単に出来ました。
+今回はブログのデプロイ自動化でしたが、
+無料で簡単に使えるので他のことにも使ってみたいなと感じさせるサービスでした。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Hugoを使ってブログスタート</title>
+      <link>http://flaflasun.github.io/tonikaku-yattemita/post/2015-03-09_hugo/</link>
+      <pubDate>Mon, 09 Mar 2015 20:54:33 +0900</pubDate>
+      
+      <guid>http://flaflasun.github.io/tonikaku-yattemita/post/2015-03-09_hugo/</guid>
+      <description>
+
+&lt;h3 id=&#34;hugoを選んだ理由:a52a23148ea334a8ceb2db78d78f6066&#34;&gt;Hugoを選んだ理由&lt;/h3&gt;
+
+&lt;p&gt;HugoはGo言語で作られたサイトジェネレータです。&lt;br /&gt;
+詳細は先人が紹介しているので省きます。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://deeeet.com/writing/2014/12/25/hugo/&#34;&gt;OctopressからHugoへ移行した&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#34;http://yet.unresolved.xyz/blog/2015/01/04/migrate-blog-to-hugo-from-octopress/&#34;&gt;ブログをOctopressからHugoに移行した&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;ブログを書く上で２つの条件がありました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Markdownで書けること&lt;/li&gt;
+&lt;li&gt;自分で記事を管理出来ること&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;条件を満たしているブログ作成ツールは他にもあると思いますが、
+あまり悩んでいてもブログを書き始めることが出来ないので、
+ひとまずはHugoで始めることにしました。&lt;/p&gt;
+
+&lt;p&gt;Hugo以外の候補としてはOctopressがありましたが、紹介したサイトにある通り、
+記事が増えると記事生成の速度に問題があるとのことなので、Hugoを選びました。&lt;/p&gt;
+
+&lt;h3 id=&#34;hugoのメリット:a52a23148ea334a8ceb2db78d78f6066&#34;&gt;Hugoのメリット&lt;/h3&gt;
+
+&lt;h4 id=&#34;構造がシンプル:a52a23148ea334a8ceb2db78d78f6066&#34;&gt;構造がシンプル&lt;/h4&gt;
+
+&lt;p&gt;Hugoのファイル構成はシンプルで理解しやすい内容になっています。&lt;br /&gt;
+テーマについても比較的、理解しやすくカスタマイズしやすい構造となっています。&lt;/p&gt;
+
+&lt;h4 id=&#34;速い:a52a23148ea334a8ceb2db78d78f6066&#34;&gt;速い&lt;/h4&gt;
+
+&lt;p&gt;速度面については記事数が少なく、比較対象もないので何とも言えませんが、
+遅く感じることは一切ありません。&lt;/p&gt;
+
+&lt;h3 id=&#34;hugoのデメリット:a52a23148ea334a8ceb2db78d78f6066&#34;&gt;Hugoのデメリット&lt;/h3&gt;
+
+&lt;h4 id=&#34;テーマが少ない:a52a23148ea334a8ceb2db78d78f6066&#34;&gt;テーマが少ない&lt;/h4&gt;
+
+&lt;p&gt;選択できるテーマが少ないです。&lt;br /&gt;
+私は現在&lt;a href=&#34;https://github.com/spf13/hyde&#34;&gt;hyde&lt;/a&gt;というテーマを使っていますが、
+今後自分でテーマを作成して運用していきたいと思っています。&lt;br /&gt;
+テーマについてはこれから増えていくことに期待しましょう。&lt;/p&gt;
+
+&lt;h3 id=&#34;今後について:a52a23148ea334a8ceb2db78d78f6066&#34;&gt;今後について&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://wercker.com/&#34;&gt;Wercker&lt;/a&gt;を使ってデプロイの自動化を試していこうと思っています。&lt;/p&gt;
+
+&lt;p&gt;書きました -&amp;gt; &lt;a href=&#34;../wercker/index.html&#34;&gt;Werckerを使ってHugoのデプロイ自動化&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://gohugo.io/tutorials/automated-deployments/&#34;&gt;Automated deployments with Wercker&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ブログを始めてみた</title>
+      <link>http://flaflasun.github.io/tonikaku-yattemita/post/2015-03-02_first/</link>
+      <pubDate>Mon, 02 Mar 2015 23:45:57 +0900</pubDate>
+      
+      <guid>http://flaflasun.github.io/tonikaku-yattemita/post/2015-03-02_first/</guid>
+      <description>&lt;p&gt;調べたことをアウトプットする機会が少なくなっていたので、ブログを始めてみることにしました。&lt;br /&gt;
+長続きするか分からないので、隔週ぐらいのペースで更新できればいいなと思っています。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
